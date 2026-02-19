@@ -887,7 +887,7 @@
         </div>
 
         <div class="reveal reveal-delay-2">
-          <form id="lead-form" onsubmit="handleSubmit(event)">
+          <form id="lead-form" action="https://formspree.io/f/mojnnezp" method="POST">
             <p class="form-title">Fale com um especialista</p>
             <p class="form-subtitle">Preencha abaixo e retornamos em até 24h.</p>
 
@@ -966,14 +966,6 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    /* Form submit */
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.textContent = 'Mensagem enviada! Entraremos em contato em breve.';
-      btn.disabled = true;
-      btn.style.background = '#2a5c42';
-    }
   </script>
 
 </body>
