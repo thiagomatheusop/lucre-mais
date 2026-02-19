@@ -612,6 +612,42 @@
       line-height: 1.5;
     }
 
+    .form-success {
+      background: var(--off-white);
+      border: 1px solid var(--gray-300);
+      border-radius: 20px;
+      padding: 60px 36px;
+      text-align: center;
+    }
+    .form-success-icon {
+      width: 64px; height: 64px;
+      background: var(--green-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 24px;
+    }
+    .form-success h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--gray-900);
+      margin-bottom: 12px;
+    }
+    .form-success p {
+      font-size: .95rem;
+      color: var(--gray-700);
+      line-height: 1.65;
+    }
+
+    .btn-submit:disabled {
+      opacity: .65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     /* ─── Footer ───────────────────────────────────────────────── */
     footer {
       background: var(--gray-900);
@@ -886,8 +922,8 @@
           </div>
         </div>
 
-        <div class="reveal reveal-delay-2">
-          <form id="lead-form" action="https://formspree.io/f/mojnnezp" method="POST">
+        <div class="reveal reveal-delay-2" id="form-container">
+          <form id="lead-form">
             <p class="form-title">Fale com um especialista</p>
             <p class="form-subtitle">Preencha abaixo e retornamos em até 24h.</p>
 
@@ -918,7 +954,7 @@
               <textarea id="mensagem" name="mensagem" placeholder="Conte brevemente o maior desafio operacional da sua empresa hoje..."></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-submit">
+            <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
               Quero estruturar minha operação →
             </button>
 
@@ -965,6 +1001,46 @@
     );
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* Form AJAX submission */
+    const form = document.getElementById('lead-form');
+    const formContainer = document.getElementById('form-container');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      const payload = {
+        nome:      document.getElementById('nome').value,
+        email:     document.getElementById('email').value,
+        whatsapp:  document.getElementById('whatsapp').value,
+        empresa:   document.getElementById('empresa').value,
+        mensagem:  document.getElementById('mensagem').value,
+      };
+
+      try {
+        await fetch('https://hook.us2.make.com/tr1hncqwn3ox3y3xr8hiobo5gct1w7pm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        formContainer.innerHTML = `
+          <div class="form-success">
+            <div class="form-success-icon">✓</div>
+            <h3>Recebemos seu contato!</h3>
+            <p>Retornaremos em até 24h.</p>
+          </div>
+        `;
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Quero estruturar minha operação →';
+        alert('Ocorreu um erro ao enviar. Por favor, tente novamente.');
+      }
+    });
 
   </script>
 
