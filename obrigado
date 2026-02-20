@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obrigado — Lucre Mais</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Recebemos seu contato. Nossa equipe retornará em até 24h." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-verde-escuro.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #0d5c38;
+      --green-mid:   #0e6f42;
+      --green-light: #e6f2ec;
+      --neon:        #00e676;
+      --off-white:   #f9f8f6;
+      --white:       #ffffff;
+      --gray-100:    #f4f4f2;
+      --gray-300:    #d4d4cc;
+      --gray-500:    #8a8a80;
+      --gray-700:    #4a4a44;
+      --gray-900:    #1c1c1a;
+      --font:        'Plus Jakarta Sans', sans-serif;
+      --radius:      10px;
+      --shadow-sm:   0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:   0 4px 16px rgba(0,0,0,.07), 0 2px 6px rgba(0,0,0,.05);
+      --transition:  .3s cubic-bezier(.4, 0, .2, 1);
+      --grad:        linear-gradient(135deg, var(--neon) 0%, var(--green) 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--off-white);
+      color: var(--gray-900);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Utility ──────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: var(--radius);
+      font-family: var(--font);
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: var(--green-mid);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(13,92,56,.3);
+    }
+
+    /* ─── Header ───────────────────────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(249,248,246,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+      transition: box-shadow var(--transition);
+    }
+    header.scrolled { box-shadow: var(--shadow-sm); }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--green);
+      text-decoration: none;
+      letter-spacing: -.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    /* ─── Confirmation Hero ─────────────────────────────────────── */
+    .confirm-section {
+      padding: 140px 0 80px;
+      background: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .confirm-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,230,118,.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .check-icon {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+      position: relative;
+    }
+    .check-icon svg {
+      width: 38px; height: 38px;
+      stroke: var(--gray-900);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .confirm-headline {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      color: var(--gray-900);
+      margin-bottom: 20px;
+    }
+    .confirm-headline em {
+      font-style: normal;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .confirm-sub {
+      font-size: 1.1rem;
+      color: var(--gray-700);
+      max-width: 520px;
+      margin: 0 auto 56px;
+      line-height: 1.7;
+    }
+
+    /* ─── Next Steps ────────────────────────────────────────────── */
+    .next-steps {
+      padding: 80px 0;
+      background: var(--off-white);
+    }
+
+    .next-steps-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -.025em;
+      line-height: 1.2;
+      color: var(--gray-900);
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .next-step-card {
+      background: var(--white);
+      border: 1px solid var(--gray-300);
+      border-radius: 16px;
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .next-step-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--grad);
+    }
+
+    .next-step-number {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--grad);
+      color: var(--gray-900);
+      font-size: .85rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .next-step-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 10px;
+    }
+
+    .next-step-desc {
+      font-size: .875rem;
+      color: var(--gray-700);
+      line-height: 1.65;
+    }
+
+    /* ─── LM³ Educational Section ───────────────────────────────── */
+    .lm3-section {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .lm3-section-header {
+      text-align: center;
+      max-width: 660px;
+      margin: 0 auto 72px;
+    }
+
+    .lm3-badge {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 3px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--green);
+      background: var(--green-light);
+      padding: 6px 16px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+      letter-spacing: -.01em;
+    }
+    .lm3-badge sup { font-size: .6em; }
+
+    /* Dimensions */
+    .dimensions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 72px;
+    }
+
+    .dim-card {
+      background: var(--off-white);
+      border: 1px solid var(--gray-300);
+      border-radius: 16px;
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dim-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--grad);
+    }
+
+    .dim-icon {
+      width: 48px; height: 48px;
+      background: var(--green-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+    }
+
+    .dim-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--gray-900);
+      margin-bottom: 10px;
+    }
+    .dim-title span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .dim-desc {
+      font-size: .88rem;
+      color: var(--gray-700);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .dim-alerts-label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .dim-alerts {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .dim-alerts li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: .8rem;
+      color: var(--gray-700);
+      line-height: 1.5;
+    }
+    .dim-alerts li::before {
+      content: '⚠';
+      font-size: .75rem;
+      color: #e6a817;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Maturity Table */
+    .maturity-block {
+      margin-top: 16px;
+    }
+
+    .maturity-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -.025em;
+      color: var(--gray-900);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .maturity-sub {
+      font-size: .95rem;
+      color: var(--gray-700);
+      line-height: 1.7;
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto 40px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid var(--gray-300);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .875rem;
+      background: var(--white);
+      min-width: 640px;
+    }
+
+    thead tr {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    thead th {
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: .78rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--gray-300);
+      transition: background var(--transition);
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--off-white); }
+
+    tbody td {
+      padding: 16px 18px;
+      color: var(--gray-700);
+      line-height: 1.55;
+      vertical-align: top;
+    }
+
+    td:first-child {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .level-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .level-1 { background: #fde8e8; color: #b91c1c; }
+    .level-2 { background: #fef3c7; color: #92400e; }
+    .level-3 { background: var(--green-light); color: var(--green); }
+    .level-4 { background: #dbeafe; color: #1d4ed8; }
+    .level-5 {
+      background: var(--grad);
+      color: var(--gray-900);
+    }
+
+    /* ─── CTA Final ─────────────────────────────────────────────── */
+    .cta-final {
+      padding: 80px 0;
+      background: var(--off-white);
+      text-align: center;
+    }
+
+    .cta-final h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -.025em;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+    }
+
+    .cta-final p {
+      font-size: 1rem;
+      color: var(--gray-700);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    /* ─── Footer ───────────────────────────────────────────────── */
+    footer {
+      background: var(--gray-900);
+      color: var(--white);
+      padding: 40px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-logo img {
+      height: 28px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-copy    { font-size: .82rem; color: rgba(255,255,255,.4); }
+    .footer-tagline { font-size: .82rem; color: rgba(255,255,255,.4); }
+
+    /* ─── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .steps-row       { grid-template-columns: 1fr; gap: 16px; }
+      .dimensions-grid { grid-template-columns: 1fr; gap: 16px; }
+    }
+    @media (max-width: 600px) {
+      .header-inner  { height: 60px; }
+      .confirm-section { padding: 110px 0 60px; }
+      .footer-inner  { flex-direction: column; text-align: center; }
+      .footer-logo   { justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ─── Header ─────────────────────────────────────────────── -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="assets/logo-verde-escuro.png" alt="Lucre Mais" />
+          Lucre Mais
+        </a>
+        <a href="/#contato" class="btn btn-primary">Fale com um especialista</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Confirmation ────────────────────────────────────────── -->
+  <section class="confirm-section">
+    <div class="container">
+      <div class="check-icon">
+        <svg viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <h1 class="confirm-headline">
+        Recebemos seu<br /><em>contato!</em>
+      </h1>
+
+      <p class="confirm-sub">
+        Em até 24 horas um especialista da Lucre Mais entrará em contato pelo canal que você informou. Enquanto isso, preparamos o material abaixo especialmente para você.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── Next Steps ───────────────────────────────────────────── -->
+  <section class="next-steps">
+    <div class="container">
+      <div class="next-steps-header">
+        <p class="section-label">O que acontece agora</p>
+        <h2 class="section-title">Próximos passos</h2>
+      </div>
+
+      <div class="steps-row">
+        <div class="next-step-card">
+          <div class="next-step-number">01</div>
+          <h3 class="next-step-title">Análise do seu perfil</h3>
+          <p class="next-step-desc">
+            Nossa equipe analisa as informações que você enviou para entender o momento atual da sua operação e preparar perguntas relevantes para a conversa.
+          </p>
+        </div>
+
+        <div class="next-step-card">
+          <div class="next-step-number">02</div>
+          <h3 class="next-step-title">Contato em até 24h</h3>
+          <p class="next-step-desc">
+            Um especialista da Lucre Mais entrará em contato pelo e-mail ou WhatsApp informado para agendar uma conversa sem pressão e sem pitch de vendas.
+          </p>
+        </div>
+
+        <div class="next-step-card">
+          <div class="next-step-number">03</div>
+          <h3 class="next-step-title">Diagnóstico LM³</h3>
+          <p class="next-step-desc">
+            Na nossa primeira conversa, mapeamos juntos a maturidade operacional da sua empresa nas três dimensões e identificamos as maiores oportunidades de ganho.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Diagnóstico LM³ Educativo ───────────────────────────── -->
+  <section class="lm3-section">
+    <div class="container">
+      <div class="lm3-section-header">
+        <div class="lm3-badge">Diagnóstico LM<sup>3</sup></div>
+        <h2 class="section-title" style="margin-bottom:16px;">
+          Entenda as três dimensões<br />da maturidade operacional
+        </h2>
+        <p style="font-size:.95rem; color:var(--gray-700); line-height:1.7; max-width:580px; margin:0 auto;">
+          O Diagnóstico LM³ avalia onde sua empresa está em cada uma das três dimensões. Conheça os sinais de alerta de cada uma delas — e o que fazemos para evoluir cada nível.
+        </p>
+      </div>
+
+      <!-- Dimensions Cards -->
+      <div class="dimensions-grid">
+
+        <!-- Libertação -->
+        <div class="dim-card">
+          <div class="dim-icon">🔓</div>
+          <h3 class="dim-title"><span>Libertação</span></h3>
+          <p class="dim-desc">
+            Mede o quanto a operação depende da presença e das decisões do fundador para funcionar. Quanto mais baixo o nível, mais o dono é o único ponto de falha.
+          </p>
+          <p class="dim-alerts-label">Sinais de alerta</p>
+          <ul class="dim-alerts">
+            <li>Nenhuma decisão é tomada sem sua aprovação</li>
+            <li>Processos não estão documentados em lugar nenhum</li>
+            <li>Funcionários novos demoram meses para ser produtivos</li>
+            <li>Ausências suas geram atrasos e crises na entrega</li>
+          </ul>
+        </div>
+
+        <!-- Lucratividade -->
+        <div class="dim-card">
+          <div class="dim-icon">📈</div>
+          <h3 class="dim-title"><span>Lucratividade</span></h3>
+          <p class="dim-desc">
+            Avalia a saúde financeira da operação: margens, precificação, custos e previsibilidade de receita. Faturamento alto com margem baixa é o sintoma mais comum.
+          </p>
+          <p class="dim-alerts-label">Sinais de alerta</p>
+          <ul class="dim-alerts">
+            <li>Você não sabe a margem real de cada projeto</li>
+            <li>Precificação é baseada em intuição, não em custo + margem</li>
+            <li>Receita cresce mas sobra cada vez menos no final do mês</li>
+            <li>Retrabalho e horas extras viram custo invisível frequente</li>
+          </ul>
+        </div>
+
+        <!-- Longevidade -->
+        <div class="dim-card">
+          <div class="dim-icon">🌱</div>
+          <h3 class="dim-title"><span>Longevidade</span></h3>
+          <p class="dim-desc">
+            Mede a capacidade da empresa de crescer de forma sustentável e se tornar um ativo que independe do fundador. Envolve cultura, liderança interna e governança.
+          </p>
+          <p class="dim-alerts-label">Sinais de alerta</p>
+          <ul class="dim-alerts">
+            <li>Não há líderes internos capazes de gerir equipes</li>
+            <li>A empresa não tem indicadores de desempenho claros</li>
+            <li>Alta rotatividade: o time bom vai embora</li>
+            <li>Não existe uma cultura ou valores percebidos pelo time</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Maturity Table -->
+      <div class="maturity-block">
+        <h3 class="maturity-title">Tabela de Maturidade Operacional</h3>
+        <p class="maturity-sub">
+          Cada empresa se encontra em um dos cinco níveis abaixo. Nosso trabalho é levá-la do nível atual ao próximo — com prioridade no que gera mais resultado.
+        </p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nível</th>
+                <th>Nome</th>
+                <th>Libertação</th>
+                <th>Lucratividade</th>
+                <th>Longevidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="level-badge level-1">1</span></td>
+                <td><strong>Caótico</strong></td>
+                <td>Tudo depende do dono. Sem processos, sem delegação.</td>
+                <td>Margens desconhecidas. Precificação intuitiva.</td>
+                <td>Sem liderança interna. Alta rotatividade.</td>
+              </tr>
+              <tr>
+                <td><span class="level-badge level-2">2</span></td>
+                <td><strong>Reativo</strong></td>
+                <td>Processos existem informalmente; o dono ainda apaga incêndios.</td>
+                <td>Custos conhecidos, mas margens variáveis e imprevisíveis.</td>
+                <td>Líderes emergentes, sem autoridade real.</td>
+              </tr>
+              <tr>
+                <td><span class="level-badge level-3">3</span></td>
+                <td><strong>Estruturado</strong></td>
+                <td>Processos documentados. Time consegue operar sem supervisão constante.</td>
+                <td>Precificação baseada em custo. Margem monitorada.</td>
+                <td>Líderes com responsabilidades definidas e metas claras.</td>
+              </tr>
+              <tr>
+                <td><span class="level-badge level-4">4</span></td>
+                <td><strong>Gerenciado</strong></td>
+                <td>Fundador atua em estratégia. Operação roda por sistema.</td>
+                <td>Margens saudáveis e previsíveis. Revisão periódica de preços.</td>
+                <td>Cultura definida. Time alinhado a valores e métricas.</td>
+              </tr>
+              <tr>
+                <td><span class="level-badge level-5">5</span></td>
+                <td><strong>Escalável</strong></td>
+                <td>Empresa funciona e cresce sem o fundador no operacional.</td>
+                <td>Lucratividade crescente com escala. Modelo financeiro robusto.</td>
+                <td>Empresa como ativo. Líderes prontos para suceder o fundador.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA Final ────────────────────────────────────────────── -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>Pronto para evoluir o nível da sua operação?</h2>
+      <p>
+        Nosso diagnóstico identifica exatamente em qual nível cada dimensão da sua empresa se encontra — e qual o próximo passo de maior impacto.
+      </p>
+      <a href="/#contato" class="btn btn-primary">
+        Quero fazer o diagnóstico LM³ →
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── Footer ──────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">
+          <img src="assets/logo-verde-escuro.png" alt="Lucre Mais" />
+          Lucre Mais
+        </span>
+        <span class="footer-tagline">COO as a Service · Recife, PE</span>
+        <span class="footer-copy">© 2025 Lucre Mais. Todos os direitos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Scripts ──────────────────────────────────────────────── -->
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
