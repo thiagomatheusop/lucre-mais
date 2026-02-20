@@ -3,19 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucre Mais — COO as a Service para empresas de serviços</title>
+  <title>Lucre Mais — COO as a Service para empresas de serviços em Recife</title>
+  <meta name="description" content="A Lucre Mais é uma consultoria operacional (COO as a Service) baseada em Recife. Estruturamos processos, delegação e sistemas para que sua empresa cresça sem depender de você." />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://lucremais.com.br/" />
+  <meta property="og:title"       content="Lucre Mais — COO as a Service para empresas de serviços" />
+  <meta property="og:description" content="Chega de ser o gargalo da sua própria empresa. Estruturamos sua operação para que o negócio cresça sem depender de você para cada decisão." />
+  <meta property="og:image"       content="https://lucremais.com.br/assets/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Lucre Mais — COO as a Service para empresas de serviços" />
+  <meta name="twitter:description" content="Chega de ser o gargalo da sua própria empresa. Estruturamos sua operação para que o negócio cresça sem depender de você." />
+  <meta name="twitter:image"       content="https://lucremais.com.br/assets/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-verde-escuro.png" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Lucre Mais",
+    "description": "Consultoria operacional (COO as a Service) para empresas de serviços baseada em Recife.",
+    "url": "https://lucremais.com.br",
+    "areaServed": "BR",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Recife",
+      "addressRegion": "PE",
+      "addressCountry": "BR"
+    },
+    "serviceType": "COO as a Service",
+    "priceRange": "$$"
+  }
+  </script>
 
   <style>
     /* ─── Reset & Base ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green:       #1a3c2b;
-      --green-mid:   #2a5c42;
-      --green-light: #e8f0eb;
+      --green:       #0d5c38;
+      --green-mid:   #0e6f42;
+      --green-light: #e6f2ec;
+      --neon:        #00e676;
       --off-white:   #f9f8f6;
       --white:       #ffffff;
       --gray-100:    #f4f4f2;
@@ -28,6 +68,7 @@
       --shadow-sm:   0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
       --shadow-md:   0 4px 16px rgba(0,0,0,.07), 0 2px 6px rgba(0,0,0,.05);
       --transition:  .3s cubic-bezier(.4, 0, .2, 1);
+      --grad:        linear-gradient(135deg, var(--neon) 0%, var(--green) 100%);
     }
 
     html { scroll-behavior: smooth; }
@@ -50,7 +91,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-1 { transition-delay: .10s; }
     .reveal-delay-2 { transition-delay: .22s; }
     .reveal-delay-3 { transition-delay: .34s; }
     .reveal-delay-4 { transition-delay: .46s; }
@@ -86,7 +127,7 @@
     .btn-primary:hover {
       background: var(--green-mid);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(26,60,43,.25);
+      box-shadow: 0 6px 20px rgba(13,92,56,.3);
     }
 
     .btn-outline {
@@ -129,14 +170,12 @@
       letter-spacing: -.02em;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
     }
-    .logo-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--green);
-      border-radius: 50%;
-      display: inline-block;
+    .logo img {
+      height: 36px;
+      width: auto;
+      display: block;
     }
 
     /* ─── Hero ─────────────────────────────────────────────────── */
@@ -147,14 +186,13 @@
       overflow: hidden;
     }
 
-    /* Subtle decorative backdrop */
     #inicio::before {
       content: '';
       position: absolute;
       top: -120px; right: -160px;
       width: 640px; height: 640px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(26,60,43,.055) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,230,118,.07) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -175,7 +213,7 @@
     .hero-label::before {
       content: '';
       width: 6px; height: 6px;
-      background: var(--green);
+      background: var(--neon);
       border-radius: 50%;
     }
 
@@ -190,7 +228,10 @@
     }
     .hero-headline em {
       font-style: normal;
-      color: var(--green);
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero-sub {
@@ -216,6 +257,7 @@
       margin-top: 60px;
       padding-top: 40px;
       border-top: 1px solid var(--gray-300);
+      flex-wrap: wrap;
     }
     .hero-trust-text {
       font-size: .82rem;
@@ -224,7 +266,8 @@
     }
     .hero-trust-badges {
       display: flex;
-      gap: 20px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
     .trust-badge {
       font-size: .78rem;
@@ -301,18 +344,31 @@
       color: var(--white);
       border-radius: 16px;
       padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .problem-callout::before {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(0,230,118,.08);
+      pointer-events: none;
     }
     .problem-callout blockquote {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      line-height: 1.5;
+      line-height: 1.55;
       letter-spacing: -.01em;
       margin-bottom: 24px;
+      position: relative;
     }
     .problem-callout p {
       font-size: .9rem;
       opacity: .75;
       line-height: 1.6;
+      position: relative;
     }
 
     /* ─── Methodology ──────────────────────────────────────────── */
@@ -362,21 +418,18 @@
       overflow: hidden;
       transition: var(--transition);
     }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--grad);
+    }
     .card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
       border-color: transparent;
     }
-    .card::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--green);
-      opacity: 0;
-      transition: opacity var(--transition);
-    }
-    .card:hover::after { opacity: 1; }
 
     .card-number {
       font-size: .75rem;
@@ -407,7 +460,10 @@
       margin-bottom: 12px;
     }
     .card-title span {
-      color: var(--green);
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .card-desc {
@@ -426,7 +482,7 @@
     }
     .card-metric strong {
       color: var(--green);
-      font-size: 1.1rem;
+      font-size: 1.0rem;
       font-weight: 700;
       display: block;
       margin-bottom: 2px;
@@ -450,16 +506,18 @@
     }
 
     .step-number {
-      width: 40px; height: 40px;
+      width: 44px; height: 44px;
       border-radius: 10px;
-      background: var(--green);
-      color: var(--white);
-      font-size: .85rem;
+      background: var(--grad);
+      color: var(--green);
+      font-size: .9rem;
       font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 18px;
+      /* number in dark green for contrast over bright neon */
+      color: var(--gray-900);
     }
 
     .step-title {
@@ -479,11 +537,11 @@
     .step:not(:last-child)::after {
       content: '';
       position: absolute;
-      top: 20px;
-      left: calc(40px + 16px);
+      top: 22px;
+      left: calc(44px + 16px);
       right: -16px;
       height: 1px;
-      background: var(--gray-300);
+      background: linear-gradient(to right, var(--neon), var(--gray-300));
     }
 
     /* ─── Form ─────────────────────────────────────────────────── */
@@ -518,6 +576,8 @@
       justify-content: center;
       font-size: .9rem;
       flex-shrink: 0;
+      color: var(--green);
+      font-weight: 700;
     }
     .form-benefit-text {
       font-size: .9rem;
@@ -570,7 +630,7 @@
       letter-spacing: .01em;
     }
 
-    input, textarea {
+    input, select, textarea {
       width: 100%;
       padding: 11px 14px;
       border: 1.5px solid var(--gray-300);
@@ -581,14 +641,40 @@
       color: var(--gray-900);
       transition: border-color var(--transition), box-shadow var(--transition);
       outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8a80' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+      cursor: pointer;
     }
     input::placeholder, textarea::placeholder {
       color: var(--gray-500);
       opacity: .7;
     }
-    input:focus, textarea:focus {
+    input:focus, select:focus, textarea:focus {
       border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(26,60,43,.1);
+      box-shadow: 0 0 0 3px rgba(13,92,56,.1);
+    }
+    input.field-error, select.field-error, textarea.field-error {
+      border-color: #e53935;
+      box-shadow: 0 0 0 3px rgba(229,57,53,.1);
+    }
+    input.field-valid, select.field-valid, textarea.field-valid {
+      border-color: var(--neon);
+    }
+
+    .field-error-msg {
+      font-size: .75rem;
+      color: #e53935;
+      margin-top: 4px;
+      display: none;
+    }
+    .field-error-msg.visible {
+      display: block;
     }
 
     textarea {
@@ -612,40 +698,10 @@
       line-height: 1.5;
     }
 
-    .form-success {
-      background: var(--off-white);
-      border: 1px solid var(--gray-300);
-      border-radius: 20px;
-      padding: 60px 36px;
-      text-align: center;
-    }
-    .form-success-icon {
-      width: 64px; height: 64px;
-      background: var(--green-light);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin: 0 auto 24px;
-    }
-    .form-success h3 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -.02em;
-      color: var(--gray-900);
-      margin-bottom: 12px;
-    }
-    .form-success p {
-      font-size: .95rem;
-      color: var(--gray-700);
-      line-height: 1.65;
-    }
-
     .btn-submit:disabled {
       opacity: .65;
       cursor: not-allowed;
-      transform: none;
+      transform: none !important;
     }
 
     /* ─── Footer ───────────────────────────────────────────────── */
@@ -668,6 +724,15 @@
       font-weight: 800;
       color: var(--white);
       letter-spacing: -.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-logo img {
+      height: 28px;
+      width: auto;
+      /* logo escura sobre fundo escuro — invertemos para ficar legível */
+      filter: brightness(0) invert(1);
     }
 
     .footer-copy {
@@ -698,6 +763,7 @@
       .steps-grid { grid-template-columns: 1fr; }
       form { padding: 28px 20px; }
       .footer-inner { flex-direction: column; text-align: center; }
+      .footer-logo { justify-content: center; }
     }
   </style>
 </head>
@@ -709,7 +775,8 @@
     <div class="container">
       <div class="header-inner">
         <a href="#inicio" class="logo">
-          Lucre Mais <span class="logo-dot"></span>
+          <img src="assets/logo-verde-escuro.png" alt="Lucre Mais" />
+          Lucre Mais
         </a>
         <a href="#contato" class="btn btn-primary">Fale com um especialista</a>
       </div>
@@ -719,7 +786,7 @@
   <!-- ─── Hero ───────────────────────────────────────────────── -->
   <section id="inicio">
     <div class="container">
-      <div class="hero-label reveal">COO as a Service</div>
+      <div class="hero-label reveal">COO as a Service · Recife</div>
 
       <h1 class="hero-headline reveal reveal-delay-1">
         Chega de ser o<br />
@@ -733,7 +800,7 @@
 
       <div class="hero-ctas reveal reveal-delay-3">
         <a href="#contato" class="btn btn-primary">
-          Quero estruturar minha operação
+          Quero estruturar minha operação →
         </a>
         <a href="#metodologia" class="btn btn-outline">
           Conhecer a metodologia LM³
@@ -765,10 +832,11 @@
           <ul class="problem-list reveal reveal-delay-2">
             <li>Você trabalha mais horas do que qualquer funcionário</li>
             <li>Processos existem na sua cabeça — e em lugar nenhum mais</li>
-            <li>Cada contratação gera mais trabalho, não menos</li>
+            <li>Cada contratação gera mais trabalho para você, não menos</li>
             <li>As margens encolhem enquanto o faturamento cresce</li>
             <li>Você não consegue tirar férias sem que tudo pare</li>
             <li>Sente que está tocando muitos pratos ao mesmo tempo — e todos estão caindo</li>
+            <li>Decisões simples chegam até você porque ninguém sabe o que fazer sem perguntar</li>
           </ul>
         </div>
 
@@ -848,7 +916,7 @@
   <!-- ─── How it Works ────────────────────────────────────────── -->
   <section id="como-funciona">
     <div class="container">
-      <div class="methodology-header" style="text-align:left; max-width:none; margin-bottom: 0;">
+      <div style="text-align:left; margin-bottom: 0;">
         <p class="section-label reveal">Como funciona</p>
         <h2 class="section-title reveal reveal-delay-1" style="max-width:520px;">
           Da conversa inicial<br />à transformação operacional
@@ -859,7 +927,7 @@
         <div class="step reveal reveal-delay-1">
           <div class="step-number">01</div>
           <h4 class="step-title">Diagnóstico LM³</h4>
-          <p class="step-desc">Mapeamos a maturidade operacional atual em cada dimensão e identificamos as maiores oportunidades de ganho.</p>
+          <p class="step-desc">Mapeamos a maturidade operacional atual em cada uma das três dimensões e identificamos as maiores oportunidades de ganho imediato.</p>
         </div>
 
         <div class="step reveal reveal-delay-2">
@@ -922,36 +990,57 @@
           </div>
         </div>
 
-        <div class="reveal reveal-delay-2" id="form-container">
-          <form id="lead-form">
+        <div class="reveal reveal-delay-2">
+          <form id="lead-form" novalidate>
             <p class="form-title">Fale com um especialista</p>
             <p class="form-subtitle">Preencha abaixo e retornamos em até 24h.</p>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="nome">Nome *</label>
-                <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name" />
+                <span class="field-error-msg" id="err-nome">Por favor, informe seu nome.</span>
               </div>
               <div class="form-group">
                 <label for="empresa">Empresa *</label>
-                <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" required />
+                <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" autocomplete="organization" />
+                <span class="field-error-msg" id="err-empresa">Por favor, informe o nome da empresa.</span>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="email">E-mail *</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+                <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" />
+                <span class="field-error-msg" id="err-email">Informe um e-mail válido.</span>
               </div>
               <div class="form-group">
                 <label for="whatsapp">WhatsApp *</label>
-                <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 9 0000-0000" required />
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="(81) 9 0000-0000" autocomplete="tel" maxlength="16" />
+                <span class="field-error-msg" id="err-whatsapp">Informe um WhatsApp válido.</span>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="mensagem">Mensagem <span style="color:var(--gray-500); font-weight:400;">(opcional)</span></label>
-              <textarea id="mensagem" name="mensagem" placeholder="Conte brevemente o maior desafio operacional da sua empresa hoje..."></textarea>
+              <label for="segmento">Segmento *</label>
+              <select id="segmento" name="segmento">
+                <option value="">Selecione o segmento da empresa…</option>
+                <option value="agencia">Agência de Marketing / Comunicação</option>
+                <option value="consultoria">Consultoria Empresarial</option>
+                <option value="escritorio">Escritório (Contabilidade, Jurídico, Arquitetura…)</option>
+                <option value="tecnologia">Empresa de Tecnologia / TI</option>
+                <option value="servicos">Prestadora de Serviços (geral)</option>
+                <option value="outro">Outro</option>
+              </select>
+              <span class="field-error-msg" id="err-segmento">Selecione o segmento da sua empresa.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="desafio">
+                Desafio operacional
+                <span style="color:var(--gray-500); font-weight:400;">(opcional)</span>
+              </label>
+              <textarea id="desafio" name="desafio" placeholder="Conte brevemente o maior desafio operacional da sua empresa hoje…"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
@@ -972,8 +1061,11 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <span class="footer-logo">Lucre Mais</span>
-        <span class="footer-tagline">COO as a Service para empresas de serviços</span>
+        <span class="footer-logo">
+          <img src="assets/logo-verde-escuro.png" alt="Lucre Mais" />
+          Lucre Mais
+        </span>
+        <span class="footer-tagline">COO as a Service · Recife, PE</span>
         <span class="footer-copy">© 2025 Lucre Mais. Todos os direitos reservados.</span>
       </div>
     </div>
@@ -981,44 +1073,106 @@
 
   <!-- ─── Scripts ──────────────────────────────────────────────── -->
   <script>
-    /* Header shadow on scroll */
+    /* ── Header shadow on scroll (passive) ─────────────────── */
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 10);
-    });
+    }, { passive: true });
 
-    /* Scroll reveal */
-    const observer = new IntersectionObserver(
+    /* ── Scroll reveal ──────────────────────────────────────── */
+    const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+            revealObserver.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    /* ── WhatsApp mask ──────────────────────────────────────── */
+    const whatsappInput = document.getElementById('whatsapp');
+    whatsappInput.addEventListener('input', () => {
+      let v = whatsappInput.value.replace(/\D/g, '').slice(0, 11);
+      if (v.length === 0) { whatsappInput.value = ''; return; }
+      if (v.length <= 2)  { whatsappInput.value = `(${v}`; return; }
+      if (v.length <= 7)  { whatsappInput.value = `(${v.slice(0,2)}) ${v.slice(2)}`; return; }
+      if (v.length <= 11) {
+        const mid = v.length === 11 ? 7 : 6;
+        whatsappInput.value = `(${v.slice(0,2)}) ${v.slice(2, mid)}-${v.slice(mid)}`;
+      }
+    });
 
-    /* Form AJAX submission */
-    const form = document.getElementById('lead-form');
-    const formContainer = document.getElementById('form-container');
+    /* ── Inline field validation ─────────────────────────────── */
+    function showError(fieldId, errId, show) {
+      const field = document.getElementById(fieldId);
+      const err   = document.getElementById(errId);
+      if (show) {
+        field.classList.add('field-error');
+        field.classList.remove('field-valid');
+        err.classList.add('visible');
+      } else {
+        field.classList.remove('field-error');
+        field.classList.add('field-valid');
+        err.classList.remove('visible');
+      }
+      return !show;
+    }
+
+    function validateNome() {
+      return showError('nome', 'err-nome', document.getElementById('nome').value.trim().length < 2);
+    }
+    function validateEmpresa() {
+      return showError('empresa', 'err-empresa', document.getElementById('empresa').value.trim().length < 2);
+    }
+    function validateEmail() {
+      const val = document.getElementById('email').value.trim();
+      return showError('email', 'err-email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
+    }
+    function validateWhatsapp() {
+      const digits = document.getElementById('whatsapp').value.replace(/\D/g, '');
+      return showError('whatsapp', 'err-whatsapp', digits.length < 10);
+    }
+    function validateSegmento() {
+      return showError('segmento', 'err-segmento', document.getElementById('segmento').value === '');
+    }
+
+    document.getElementById('nome').addEventListener('blur', validateNome);
+    document.getElementById('empresa').addEventListener('blur', validateEmpresa);
+    document.getElementById('email').addEventListener('blur', validateEmail);
+    document.getElementById('whatsapp').addEventListener('blur', validateWhatsapp);
+    document.getElementById('segmento').addEventListener('blur', validateSegmento);
+
+    /* ── Form submission ────────────────────────────────────── */
+    const form      = document.getElementById('lead-form');
     const submitBtn = document.getElementById('submit-btn');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      const ok = [
+        validateNome(),
+        validateEmpresa(),
+        validateEmail(),
+        validateWhatsapp(),
+        validateSegmento(),
+      ].every(Boolean);
+
+      if (!ok) return;
+
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Enviando...';
+      submitBtn.textContent = 'Enviando…';
 
       const payload = {
-        nome:      document.getElementById('nome').value,
-        email:     document.getElementById('email').value,
-        whatsapp:  document.getElementById('whatsapp').value,
-        empresa:   document.getElementById('empresa').value,
-        mensagem:  document.getElementById('mensagem').value,
+        nome:     document.getElementById('nome').value.trim(),
+        empresa:  document.getElementById('empresa').value.trim(),
+        email:    document.getElementById('email').value.trim(),
+        whatsapp: document.getElementById('whatsapp').value.trim(),
+        segmento: document.getElementById('segmento').value,
+        desafio:  document.getElementById('desafio').value.trim(),
       };
 
       try {
@@ -1027,21 +1181,13 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         });
-
-        formContainer.innerHTML = `
-          <div class="form-success">
-            <div class="form-success-icon">✓</div>
-            <h3>Recebemos seu contato!</h3>
-            <p>Retornaremos em até 24h.</p>
-          </div>
-        `;
+        window.location.href = '/obrigado';
       } catch {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Quero estruturar minha operação →';
         alert('Ocorreu um erro ao enviar. Por favor, tente novamente.');
       }
     });
-
   </script>
 
 </body>
