@@ -20,7 +20,7 @@
   <meta name="twitter:image"       content="https://lucremais.com.br/assets/og-image.png" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/logo-verde-escuro.png" />
+  <link rel="icon" type="image/png" href="assets/VERDE%20ESCURO.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,24 +54,24 @@
     :root {
       --green:       #0d5c38;
       --green-mid:   #0e6f42;
-      --green-light: #e6f2ec;
+      --green-light: rgba(0, 230, 118, 0.10);
       --neon:        #00e676;
-      --off-white:   #f9f8f6;
+      --off-white:   #070707;
       --white:       #ffffff;
-      --gray-100:    #f4f4f2;
-      --gray-300:    #d4d4cc;
-      --gray-500:    #8a8a80;
-      --gray-700:    #4a4a44;
-      --gray-900:    #1c1c1a;
+      --gray-100:    #141414;
+      --gray-300:    rgba(255, 255, 255, .09);
+      --gray-500:    #737368;
+      --gray-700:    #909088;
+      --gray-900:    #edede9;
       --font:        'Plus Jakarta Sans', sans-serif;
       --radius:      10px;
-      --shadow-sm:   0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
-      --shadow-md:   0 4px 16px rgba(0,0,0,.07), 0 2px 6px rgba(0,0,0,.05);
+      --shadow-sm:   0 1px 3px rgba(0,0,0,.5), 0 1px 2px rgba(0,0,0,.4);
+      --shadow-md:   0 4px 16px rgba(0,0,0,.5), 0 2px 6px rgba(0,0,0,.4);
       --transition:  .3s cubic-bezier(.4, 0, .2, 1);
       --grad:        linear-gradient(135deg, var(--neon) 0%, var(--green) 100%);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
 
     body {
       font-family: var(--font);
@@ -127,16 +127,27 @@
     .btn-primary:hover {
       background: var(--green-mid);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(13,92,56,.3);
+      box-shadow: 0 6px 20px rgba(13,92,56,.4);
     }
 
     .btn-outline {
       background: transparent;
-      color: var(--green);
-      border: 1.5px solid var(--green);
+      color: var(--neon);
+      border: 1.5px solid var(--neon);
     }
     .btn-outline:hover {
-      background: var(--green-light);
+      background: rgba(0,230,118,.08);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.4);
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.7);
       transform: translateY(-1px);
     }
 
@@ -145,14 +156,14 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(249,248,246,.92);
+      background: rgba(7,7,7,.95);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,.06);
+      border-bottom: 1px solid rgba(255,255,255,.06);
       transition: box-shadow var(--transition);
     }
     header.scrolled {
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 1px 16px rgba(0,0,0,.6);
     }
 
     .header-inner {
@@ -165,7 +176,7 @@
     .logo {
       font-size: 1.25rem;
       font-weight: 800;
-      color: var(--green);
+      color: var(--white);
       text-decoration: none;
       letter-spacing: -.02em;
       display: flex;
@@ -181,7 +192,7 @@
     /* ─── Hero ─────────────────────────────────────────────────── */
     #inicio {
       padding: 160px 0 100px;
-      background: var(--white);
+      background: #0f0f0f;
       position: relative;
       overflow: hidden;
     }
@@ -192,7 +203,7 @@
       top: -120px; right: -160px;
       width: 640px; height: 640px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,230,118,.07) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,230,118,.10) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -201,7 +212,7 @@
       align-items: center;
       gap: 8px;
       background: var(--green-light);
-      color: var(--green);
+      color: var(--neon);
       font-size: .8rem;
       font-weight: 600;
       letter-spacing: .08em;
@@ -223,7 +234,7 @@
       line-height: 1.15;
       letter-spacing: -.03em;
       color: var(--gray-900);
-      max-width: 700px;
+      max-width: 760px;
       margin-bottom: 24px;
     }
     .hero-headline em {
@@ -237,7 +248,7 @@
     .hero-sub {
       font-size: 1.1rem;
       color: var(--gray-700);
-      max-width: 560px;
+      max-width: 580px;
       line-height: 1.7;
       margin-bottom: 44px;
       font-weight: 400;
@@ -256,7 +267,7 @@
       gap: 10px;
       margin-top: 60px;
       padding-top: 40px;
-      border-top: 1px solid var(--gray-300);
+      border-top: 1px solid rgba(255,255,255,.07);
       flex-wrap: wrap;
     }
     .hero-trust-text {
@@ -273,9 +284,59 @@
       font-size: .78rem;
       color: var(--gray-700);
       font-weight: 600;
-      border: 1px solid var(--gray-300);
+      border: 1px solid rgba(255,255,255,.1);
       padding: 4px 12px;
       border-radius: 99px;
+    }
+
+    /* ─── Stats Bar ─────────────────────────────────────────────── */
+    #stats-bar {
+      background: #0a0a0a;
+      border-top: 1px solid rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+
+    .stats-inner {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 28px 40px;
+      border-right: 1px solid rgba(255,255,255,.06);
+      flex: 1;
+      min-width: 180px;
+    }
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -.01em;
+    }
+
+    .stat-value em {
+      font-style: normal;
+      color: var(--neon);
     }
 
     /* ─── Problem Section ──────────────────────────────────────── */
@@ -289,7 +350,7 @@
       font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
-      color: var(--green);
+      color: var(--neon);
       margin-bottom: 16px;
     }
 
@@ -333,7 +394,7 @@
     }
     .problem-list li::before {
       content: '—';
-      color: var(--green);
+      color: var(--neon);
       font-weight: 700;
       flex-shrink: 0;
       margin-top: 1px;
@@ -363,10 +424,11 @@
       letter-spacing: -.01em;
       margin-bottom: 24px;
       position: relative;
+      color: var(--white);
     }
     .problem-callout p {
       font-size: .9rem;
-      opacity: .75;
+      color: rgba(255,255,255,.7);
       line-height: 1.6;
       position: relative;
     }
@@ -374,7 +436,7 @@
     /* ─── Methodology ──────────────────────────────────────────── */
     #metodologia {
       padding: 100px 0;
-      background: var(--white);
+      background: #0f0f0f;
     }
 
     .methodology-header {
@@ -392,7 +454,7 @@
       gap: 3px;
       font-size: 1rem;
       font-weight: 800;
-      color: var(--green);
+      color: var(--neon);
       background: var(--green-light);
       padding: 6px 16px;
       border-radius: 99px;
@@ -410,8 +472,8 @@
     }
 
     .card {
-      background: var(--off-white);
-      border: 1px solid var(--gray-300);
+      background: #141414;
+      border: 1px solid rgba(255,255,255,.08);
       border-radius: 16px;
       padding: 40px 32px;
       position: relative;
@@ -428,7 +490,7 @@
     .card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
-      border-color: transparent;
+      border-color: rgba(255,255,255,.14);
     }
 
     .card-number {
@@ -436,9 +498,9 @@
       font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--green);
+      color: var(--neon);
       margin-bottom: 20px;
-      opacity: .7;
+      opacity: .6;
     }
 
     .card-icon {
@@ -449,7 +511,6 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      font-size: 1.4rem;
     }
 
     .card-title {
@@ -475,17 +536,22 @@
     .card-metric {
       margin-top: 28px;
       padding-top: 20px;
-      border-top: 1px solid var(--gray-300);
+      border-top: 1px solid rgba(255,255,255,.07);
       font-size: .8rem;
       color: var(--gray-500);
       font-weight: 500;
     }
     .card-metric strong {
-      color: var(--green);
+      color: var(--neon);
       font-size: 1.0rem;
       font-weight: 700;
       display: block;
       margin-bottom: 2px;
+    }
+
+    .methodology-cta {
+      text-align: center;
+      margin-top: 52px;
     }
 
     /* ─── How it works ─────────────────────────────────────────── */
@@ -509,15 +575,13 @@
       width: 44px; height: 44px;
       border-radius: 10px;
       background: var(--grad);
-      color: var(--green);
       font-size: .9rem;
       font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 18px;
-      /* number in dark green for contrast over bright neon */
-      color: var(--gray-900);
+      color: #0a0a0a;
     }
 
     .step-title {
@@ -541,13 +605,88 @@
       left: calc(44px + 16px);
       right: -16px;
       height: 1px;
-      background: linear-gradient(to right, var(--neon), var(--gray-300));
+      background: linear-gradient(to right, var(--neon), rgba(255,255,255,.07));
+    }
+
+    /* ─── CTA Break ─────────────────────────────────────────────── */
+    #cta-break {
+      padding: 100px 0;
+      background: var(--green);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    #cta-break::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,230,118,.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cta-break-inner {
+      position: relative;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .cta-break-label {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 20px;
+    }
+
+    .cta-break-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .cta-break-title em {
+      font-style: normal;
+      color: var(--neon);
+    }
+
+    .cta-break-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.65;
+      margin-bottom: 40px;
+    }
+
+    .cta-break-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--green);
+      font-weight: 700;
+    }
+    .btn-white:hover {
+      background: #f0f0ee;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(0,0,0,.2);
     }
 
     /* ─── Form ─────────────────────────────────────────────────── */
     #contato {
       padding: 100px 0;
-      background: var(--white);
+      background: #0f0f0f;
     }
 
     .form-wrapper {
@@ -576,7 +715,7 @@
       justify-content: center;
       font-size: .9rem;
       flex-shrink: 0;
-      color: var(--green);
+      color: var(--neon);
       font-weight: 700;
     }
     .form-benefit-text {
@@ -592,8 +731,8 @@
     }
 
     form {
-      background: var(--off-white);
-      border: 1px solid var(--gray-300);
+      background: #141414;
+      border: 1px solid rgba(255,255,255,.08);
       border-radius: 20px;
       padding: 40px 36px;
     }
@@ -633,9 +772,9 @@
     input, select, textarea {
       width: 100%;
       padding: 11px 14px;
-      border: 1.5px solid var(--gray-300);
+      border: 1.5px solid rgba(255,255,255,.1);
       border-radius: var(--radius);
-      background: var(--white);
+      background: #1c1c1c;
       font-family: var(--font);
       font-size: .9rem;
       color: var(--gray-900);
@@ -645,23 +784,28 @@
       -webkit-appearance: none;
     }
     select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8a80' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23aaaaaa' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 14px center;
+      background-color: #1c1c1c;
       padding-right: 38px;
       cursor: pointer;
     }
+    select option {
+      background: #1c1c1c;
+      color: var(--gray-900);
+    }
     input::placeholder, textarea::placeholder {
-      color: var(--gray-500);
-      opacity: .7;
+      color: rgba(255,255,255,.25);
+      opacity: 1;
     }
     input:focus, select:focus, textarea:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(13,92,56,.1);
+      border-color: var(--neon);
+      box-shadow: 0 0 0 3px rgba(0,230,118,.12);
     }
     input.field-error, select.field-error, textarea.field-error {
       border-color: #e53935;
-      box-shadow: 0 0 0 3px rgba(229,57,53,.1);
+      box-shadow: 0 0 0 3px rgba(229,57,53,.12);
     }
     input.field-valid, select.field-valid, textarea.field-valid {
       border-color: var(--neon);
@@ -669,7 +813,7 @@
 
     .field-error-msg {
       font-size: .75rem;
-      color: #e53935;
+      color: #ef5350;
       margin-top: 4px;
       display: none;
     }
@@ -706,7 +850,8 @@
 
     /* ─── Footer ───────────────────────────────────────────────── */
     footer {
-      background: var(--gray-900);
+      background: #040404;
+      border-top: 1px solid rgba(255,255,255,.05);
       color: var(--white);
       padding: 40px 0;
     }
@@ -731,18 +876,16 @@
     .footer-logo img {
       height: 28px;
       width: auto;
-      /* logo escura sobre fundo escuro — invertemos para ficar legível */
-      filter: brightness(0) invert(1);
     }
 
     .footer-copy {
       font-size: .82rem;
-      color: rgba(255,255,255,.4);
+      color: rgba(255,255,255,.35);
     }
 
     .footer-tagline {
       font-size: .82rem;
-      color: rgba(255,255,255,.4);
+      color: rgba(255,255,255,.35);
     }
 
     /* ─── Responsive ───────────────────────────────────────────── */
@@ -753,6 +896,8 @@
       .form-wrapper { grid-template-columns: 1fr; gap: 40px; }
       .form-row     { grid-template-columns: 1fr; }
       .step::after  { display: none; }
+      .stat-item    { border-right: none; border-bottom: 1px solid rgba(255,255,255,.06); min-width: 50%; }
+      .stat-item:last-child { border-bottom: none; }
     }
 
     @media (max-width: 600px) {
@@ -764,6 +909,9 @@
       form { padding: 28px 20px; }
       .footer-inner { flex-direction: column; text-align: center; }
       .footer-logo { justify-content: center; }
+      .stat-item { min-width: 100%; }
+      .cta-break-actions { flex-direction: column; align-items: stretch; }
+      .cta-break-actions .btn { justify-content: center; }
     }
   </style>
 </head>
@@ -775,7 +923,7 @@
     <div class="container">
       <div class="header-inner">
         <a href="#inicio" class="logo">
-          <img src="assets/logo-verde-escuro.png" alt="Lucre Mais" />
+          <img src="assets/BRANCO.png" alt="Lucre Mais" />
           Lucre Mais
         </a>
         <a href="#contato" class="btn btn-primary">Fale com um especialista</a>
@@ -786,16 +934,15 @@
   <!-- ─── Hero ───────────────────────────────────────────────── -->
   <section id="inicio">
     <div class="container">
-      <div class="hero-label reveal">COO as a Service · Recife</div>
+      <div class="hero-label reveal">COO as a Service</div>
 
       <h1 class="hero-headline reveal reveal-delay-1">
-        Chega de ser o<br />
-        <em>gargalo</em> da sua<br />
-        própria empresa.
+        Estruture sua operação para crescer<br />
+        com mais <em>eficiência e lucratividade.</em>
       </h1>
 
       <p class="hero-sub reveal reveal-delay-2">
-        A Lucre Mais atua como o seu COO externo — estruturando processos, construindo times e criando sistemas para que o seu negócio cresça sem depender de você para cada decisão.
+        A Lucre Mais atua como seu COO externo — estruturando processos, formando times e implementando IA e automações para que o seu negócio cresça sem depender de você para cada decisão.
       </p>
 
       <div class="hero-ctas reveal reveal-delay-3">
@@ -819,6 +966,30 @@
     </div>
   </section>
 
+  <!-- ─── Stats Bar ────────────────────────────────────────────── -->
+  <section id="stats-bar">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-label">Modelo de atuação</span>
+          <span class="stat-value"><em>COO</em> as a Service</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Tecnologia</span>
+          <span class="stat-value">IA <em>&</em> Automações</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Metodologia</span>
+          <span class="stat-value">Framework <em>LM³</em></span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Diagnóstico inicial</span>
+          <span class="stat-value"><em>Gratuito</em> e sem compromisso</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── Problem ─────────────────────────────────────────────── -->
   <section id="problema">
     <div class="container">
@@ -826,26 +997,26 @@
         <div>
           <p class="section-label reveal">O diagnóstico</p>
           <h2 class="section-title reveal reveal-delay-1">
-            Você construiu uma empresa<br />que não funciona sem você.
+            Seu negócio cresceu.<br />A operação não acompanhou.
           </h2>
 
           <ul class="problem-list reveal reveal-delay-2">
             <li>Você trabalha mais horas do que qualquer funcionário</li>
-            <li>Processos existem na sua cabeça — e em lugar nenhum mais</li>
-            <li>Cada contratação gera mais trabalho para você, não menos</li>
-            <li>As margens encolhem enquanto o faturamento cresce</li>
+            <li>Processos existem só na sua cabeça — e em lugar nenhum mais</li>
+            <li>Cada nova contratação gera mais trabalho para você, não menos</li>
+            <li>O faturamento cresce, mas a margem não aparece</li>
             <li>Você não consegue tirar férias sem que tudo pare</li>
-            <li>Sente que está tocando muitos pratos ao mesmo tempo — e todos estão caindo</li>
-            <li>Decisões simples chegam até você porque ninguém sabe o que fazer sem perguntar</li>
+            <li>Decisões simples chegam até você porque ninguém sabe agir sem perguntar</li>
+            <li>Você toca muitos pratos ao mesmo tempo — e sente que todos estão caindo</li>
           </ul>
         </div>
 
         <div class="problem-callout reveal reveal-delay-2">
           <blockquote>
-            "Não falta talento, nem mercado. O que falta é estrutura operacional para escalar sem você no centro de tudo."
+            "Não é falta de talento. Não é falta de mercado. É falta de estrutura — e isso tem solução."
           </blockquote>
           <p>
-            Empresas de serviço crescem até o limite do fundador. A solução não é trabalhar mais — é construir uma operação que funcione por sistema, não por esforço individual.
+            Empresas de serviço crescem até o limite do fundador. A saída não é trabalhar mais — é construir uma operação que funciona por sistema, não por esforço pessoal.
           </p>
         </div>
       </div>
@@ -858,10 +1029,10 @@
       <div class="methodology-header">
         <div class="lm3-badge reveal">Metodologia LM<sup>3</sup></div>
         <h2 class="section-title reveal reveal-delay-1">
-          Maturidade operacional<br />em três dimensões
+          Três dimensões para escalar<br />sem você no centro de tudo
         </h2>
         <p class="section-body reveal reveal-delay-2">
-          O LM³ é o framework proprietário da Lucre Mais para medir e evoluir a maturidade operacional de empresas de serviços. Três dimensões, um único destino: um negócio que prospera sem depender do fundador.
+          O LM³ é o framework proprietário da Lucre Mais para medir e evoluir a maturidade operacional de empresas de serviços. Três frentes trabalhadas em paralelo, um único destino: um negócio que prospera sem depender do fundador.
         </p>
       </div>
 
@@ -870,13 +1041,17 @@
         <!-- Card 1 -->
         <div class="card reveal reveal-delay-1">
           <div class="card-number">Dimensão 01</div>
-          <div class="card-icon">🔓</div>
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12L10 17L19 7" stroke="#00e676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <h3 class="card-title"><span>Libertação</span></h3>
           <p class="card-desc">
-            O dono sai da operação. Mapeamos onde você é o gargalo e construímos sistemas, delegações e protocolos para que a empresa rode sem a sua presença constante — sem perder qualidade.
+            Identificamos cada ponto onde a operação depende de você. Construímos sistemas, protocolos e estruturas de delegação para que a empresa funcione com qualidade — mesmo quando você não está.
           </p>
           <div class="card-metric">
-            <strong>Objetivo</strong>
+            <strong>Resultado</strong>
             O fundador decide estratégia, não execução
           </div>
         </div>
@@ -884,31 +1059,45 @@
         <!-- Card 2 -->
         <div class="card reveal reveal-delay-2">
           <div class="card-number">Dimensão 02</div>
-          <div class="card-icon">📈</div>
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12L10 17L19 7" stroke="#00e676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <h3 class="card-title"><span>Lucratividade</span></h3>
           <p class="card-desc">
-            Margens saudáveis e previsíveis. Diagnosticamos onde o negócio sangra dinheiro, reestruturamos precificação, custos e entrega para que cada projeto gere resultado real — não apenas faturamento.
+            Mapeamos onde o negócio perde margem. Reestruturamos precificação, custos e processos de entrega para que cada projeto gere lucro real — não apenas faturamento.
           </p>
           <div class="card-metric">
-            <strong>Objetivo</strong>
-            Crescer com margem, não com volume
+            <strong>Resultado</strong>
+            Crescer com margem, não só com volume
           </div>
         </div>
 
         <!-- Card 3 -->
         <div class="card reveal reveal-delay-3">
           <div class="card-number">Dimensão 03</div>
-          <div class="card-icon">🌱</div>
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12L10 17L19 7" stroke="#00e676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <h3 class="card-title"><span>Longevidade</span></h3>
           <p class="card-desc">
-            Empresa que cresce sem depender do fundador. Construímos cultura, liderança interna, indicadores e rituais de gestão para que o negócio escale de forma sustentável — e valha mais a cada ano.
+            Desenvolvemos liderança interna, indicadores e rituais de gestão para que o negócio escale com consistência — e se torne um ativo real, não apenas um emprego com mais responsabilidades.
           </p>
           <div class="card-metric">
-            <strong>Objetivo</strong>
-            Um ativo, não apenas um emprego
+            <strong>Resultado</strong>
+            Um ativo que vale mais a cada ano
           </div>
         </div>
 
+      </div>
+
+      <div class="methodology-cta reveal reveal-delay-4">
+        <a href="#contato" class="btn btn-primary">
+          Quero aplicar o LM³ no meu negócio →
+        </a>
       </div>
     </div>
   </section>
@@ -927,25 +1116,48 @@
         <div class="step reveal reveal-delay-1">
           <div class="step-number">01</div>
           <h4 class="step-title">Diagnóstico LM³</h4>
-          <p class="step-desc">Mapeamos a maturidade operacional atual em cada uma das três dimensões e identificamos as maiores oportunidades de ganho imediato.</p>
+          <p class="step-desc">Avaliamos sua operação nas três dimensões do LM³ e mapeamos os gargalos de maior impacto imediato no negócio.</p>
         </div>
 
         <div class="step reveal reveal-delay-2">
           <div class="step-number">02</div>
           <h4 class="step-title">Plano de Estruturação</h4>
-          <p class="step-desc">Definimos prioridades, marcos e iniciativas de alto impacto com um roadmap claro para os próximos 90 dias.</p>
+          <p class="step-desc">Definimos prioridades e iniciativas de alto impacto com um roadmap claro para os próximos 90 dias.</p>
         </div>
 
         <div class="step reveal reveal-delay-3">
           <div class="step-number">03</div>
           <h4 class="step-title">Implementação</h4>
-          <p class="step-desc">Trabalhamos lado a lado com seu time — criando processos, treinando lideranças e ajustando o que for necessário.</p>
+          <p class="step-desc">Trabalhamos junto ao seu time. Processos documentados, lideranças treinadas, IA e automações implementadas.</p>
         </div>
 
         <div class="step reveal reveal-delay-4">
           <div class="step-number">04</div>
           <h4 class="step-title">Autonomia</h4>
           <p class="step-desc">A operação passa a rodar por sistemas. Você foca no crescimento estratégico enquanto o negócio funciona sem você.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA Break ────────────────────────────────────────────── -->
+  <section id="cta-break">
+    <div class="container">
+      <div class="cta-break-inner">
+        <p class="cta-break-label reveal">Próximo passo</p>
+        <h2 class="cta-break-title reveal reveal-delay-1">
+          Sua operação pode funcionar<br /><em>sem você estar em tudo.</em>
+        </h2>
+        <p class="cta-break-sub reveal reveal-delay-2">
+          Agende um diagnóstico inicial gratuito. Analisamos onde sua empresa está hoje e o que é necessário para você sair do centro da operação.
+        </p>
+        <div class="cta-break-actions reveal reveal-delay-3">
+          <a href="#contato" class="btn btn-white">
+            Quero meu diagnóstico gratuito →
+          </a>
+          <a href="#metodologia" class="btn btn-outline-white">
+            Conhecer o LM³
+          </a>
         </div>
       </div>
     </div>
@@ -962,7 +1174,7 @@
             O primeiro passo é uma conversa honesta.
           </h2>
           <p class="section-body reveal reveal-delay-2">
-            Sem pitch de vendas. Analisamos juntos onde sua operação está hoje e o que seria necessário para você sair do centro de tudo.
+            Sem pitch de vendas. Analisamos juntos onde sua operação está hoje e o que é necessário para você sair do centro de tudo.
           </p>
 
           <div style="margin-top: 36px;">
@@ -1002,22 +1214,22 @@
                 <span class="field-error-msg" id="err-nome">Por favor, informe seu nome.</span>
               </div>
               <div class="form-group">
-                <label for="empresa">Empresa *</label>
-                <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" autocomplete="organization" />
-                <span class="field-error-msg" id="err-empresa">Por favor, informe o nome da empresa.</span>
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" />
+                <span class="field-error-msg" id="err-email">Informe um e-mail válido.</span>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="email">E-mail *</label>
-                <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" />
-                <span class="field-error-msg" id="err-email">Informe um e-mail válido.</span>
-              </div>
-              <div class="form-group">
                 <label for="whatsapp">WhatsApp *</label>
                 <input type="tel" id="whatsapp" name="whatsapp" placeholder="(81) 9 0000-0000" autocomplete="tel" maxlength="16" />
                 <span class="field-error-msg" id="err-whatsapp">Informe um WhatsApp válido.</span>
+              </div>
+              <div class="form-group">
+                <label for="empresa">Nome da empresa *</label>
+                <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa" autocomplete="organization" />
+                <span class="field-error-msg" id="err-empresa">Por favor, informe o nome da empresa.</span>
               </div>
             </div>
 
@@ -1035,12 +1247,31 @@
               <span class="field-error-msg" id="err-segmento">Selecione o segmento da sua empresa.</span>
             </div>
 
-            <div class="form-group">
-              <label for="desafio">
-                Desafio operacional
-                <span style="color:var(--gray-500); font-weight:400;">(opcional)</span>
-              </label>
-              <textarea id="desafio" name="desafio" placeholder="Conte brevemente o maior desafio operacional da sua empresa hoje…"></textarea>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="funcionarios">Número de funcionários *</label>
+                <select id="funcionarios" name="funcionarios">
+                  <option value="">Selecione…</option>
+                  <option value="menos-3">Menos de 3</option>
+                  <option value="3-10">De 3 a 10</option>
+                  <option value="10-30">De 10 a 30</option>
+                  <option value="acima-30">Acima de 30</option>
+                </select>
+                <span class="field-error-msg" id="err-funcionarios">Selecione o número de funcionários.</span>
+              </div>
+              <div class="form-group">
+                <label for="faturamento">Faturamento mensal *</label>
+                <select id="faturamento" name="faturamento">
+                  <option value="">Selecione…</option>
+                  <option value="menos-20k">Menos de R$ 20.000</option>
+                  <option value="20k-50k">Entre R$ 20.000 e R$ 50.000</option>
+                  <option value="50k-80k">Entre R$ 50.000 e R$ 80.000</option>
+                  <option value="80k-100k">Entre R$ 80.000 e R$ 100.000</option>
+                  <option value="100k-250k">Entre R$ 100.000 e R$ 250.000</option>
+                  <option value="acima-250k">Acima de R$ 250.000</option>
+                </select>
+                <span class="field-error-msg" id="err-faturamento">Selecione a faixa de faturamento.</span>
+              </div>
             </div>
 
             <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
@@ -1062,10 +1293,10 @@
     <div class="container">
       <div class="footer-inner">
         <span class="footer-logo">
-          <img src="assets/logo-verde-escuro.png" alt="Lucre Mais" />
+          <img src="assets/BRANCO.png" alt="Lucre Mais" />
           Lucre Mais
         </span>
-        <span class="footer-tagline">COO as a Service · Recife, PE</span>
+        <span class="footer-tagline">COO as a Service</span>
         <span class="footer-copy">© 2025 Lucre Mais. Todos os direitos reservados.</span>
       </div>
     </div>
@@ -1122,29 +1353,21 @@
       return !show;
     }
 
-    function validateNome() {
-      return showError('nome', 'err-nome', document.getElementById('nome').value.trim().length < 2);
-    }
-    function validateEmpresa() {
-      return showError('empresa', 'err-empresa', document.getElementById('empresa').value.trim().length < 2);
-    }
-    function validateEmail() {
-      const val = document.getElementById('email').value.trim();
-      return showError('email', 'err-email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
-    }
-    function validateWhatsapp() {
-      const digits = document.getElementById('whatsapp').value.replace(/\D/g, '');
-      return showError('whatsapp', 'err-whatsapp', digits.length < 10);
-    }
-    function validateSegmento() {
-      return showError('segmento', 'err-segmento', document.getElementById('segmento').value === '');
-    }
+    function validateNome()         { return showError('nome',         'err-nome',         document.getElementById('nome').value.trim().length < 2); }
+    function validateEmail()        { const v = document.getElementById('email').value.trim(); return showError('email', 'err-email', !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)); }
+    function validateWhatsapp()     { const d = document.getElementById('whatsapp').value.replace(/\D/g, ''); return showError('whatsapp', 'err-whatsapp', d.length < 10); }
+    function validateEmpresa()      { return showError('empresa',      'err-empresa',      document.getElementById('empresa').value.trim().length < 2); }
+    function validateSegmento()     { return showError('segmento',     'err-segmento',     document.getElementById('segmento').value === ''); }
+    function validateFuncionarios() { return showError('funcionarios', 'err-funcionarios', document.getElementById('funcionarios').value === ''); }
+    function validateFaturamento()  { return showError('faturamento',  'err-faturamento',  document.getElementById('faturamento').value === ''); }
 
-    document.getElementById('nome').addEventListener('blur', validateNome);
-    document.getElementById('empresa').addEventListener('blur', validateEmpresa);
-    document.getElementById('email').addEventListener('blur', validateEmail);
-    document.getElementById('whatsapp').addEventListener('blur', validateWhatsapp);
-    document.getElementById('segmento').addEventListener('blur', validateSegmento);
+    document.getElementById('nome').addEventListener('blur',         validateNome);
+    document.getElementById('email').addEventListener('blur',        validateEmail);
+    document.getElementById('whatsapp').addEventListener('blur',     validateWhatsapp);
+    document.getElementById('empresa').addEventListener('blur',      validateEmpresa);
+    document.getElementById('segmento').addEventListener('blur',     validateSegmento);
+    document.getElementById('funcionarios').addEventListener('blur', validateFuncionarios);
+    document.getElementById('faturamento').addEventListener('blur',  validateFaturamento);
 
     /* ── Form submission ────────────────────────────────────── */
     const form      = document.getElementById('lead-form');
@@ -1155,10 +1378,12 @@
 
       const ok = [
         validateNome(),
-        validateEmpresa(),
         validateEmail(),
         validateWhatsapp(),
+        validateEmpresa(),
         validateSegmento(),
+        validateFuncionarios(),
+        validateFaturamento(),
       ].every(Boolean);
 
       if (!ok) return;
@@ -1167,12 +1392,13 @@
       submitBtn.textContent = 'Enviando…';
 
       const payload = {
-        nome:     document.getElementById('nome').value.trim(),
-        empresa:  document.getElementById('empresa').value.trim(),
-        email:    document.getElementById('email').value.trim(),
-        whatsapp: document.getElementById('whatsapp').value.trim(),
-        segmento: document.getElementById('segmento').value,
-        desafio:  document.getElementById('desafio').value.trim(),
+        nome:         document.getElementById('nome').value.trim(),
+        email:        document.getElementById('email').value.trim(),
+        whatsapp:     document.getElementById('whatsapp').value.trim(),
+        empresa:      document.getElementById('empresa').value.trim(),
+        segmento:     document.getElementById('segmento').value,
+        funcionarios: document.getElementById('funcionarios').value,
+        faturamento:  document.getElementById('faturamento').value,
       };
 
       try {
